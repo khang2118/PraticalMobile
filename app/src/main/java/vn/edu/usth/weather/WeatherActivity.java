@@ -10,10 +10,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.Objects;
 
 public class WeatherActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +33,26 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
 
 
+        ViewPager2 viewPager = findViewById(R.id.viewPager);
+        WeatherPagerAdapter adapter = new WeatherPagerAdapter(WeatherActivity.this);
+        viewPager.setAdapter(adapter);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        WeatherPagerAdapter adapter1 = new WeatherPagerAdapter(this);
+        viewPager.setAdapter(adapter1);
 
+        TabLayout tabLayout2 = findViewById(R.id.tabLayout);
+
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> {
+                    switch (position) {
+                        case 0: tab.setText("Forecast"); break;
+                        case 1: tab.setText("Weather"); break;
+                        case 2: tab.setText("Combined"); break;
+                    }
+                }).attach();
     }
+
 
     @Override
     protected void onStart(){
