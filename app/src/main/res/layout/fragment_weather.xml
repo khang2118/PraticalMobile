@@ -7,26 +7,51 @@
     android:orientation="horizontal"
     android:padding="10dp"
     android:fitsSystemWindows="true"
-    android:background="@drawable/images">
+    android:background="@color/white">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1">
+        android:orientation="horizontal"
+        android:background="@drawable/frame">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="40dp"
+            android:paddingLeft="40dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12C"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cloudy"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
+        </LinearLayout>
 
+        <ImageView
+            android:layout_width="195dp"
+            android:layout_height="198dp"
+            android:src="@drawable/cloudy"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ha Noi"
+            android:textColor="@color/black"
+            android:paddingTop="40dp"/>
 
     </LinearLayout>
+
+
 
 
 </LinearLayout>
