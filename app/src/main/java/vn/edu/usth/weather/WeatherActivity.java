@@ -32,6 +32,12 @@ public class WeatherActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_weather);
 
+        RawtoExternal copytosd = new RawtoExternal(WeatherActivity.this);
+
+        // Copy MP3 to SD card
+        copytosd.copyFileToSdCard(WeatherActivity.this);
+        // Play it
+        copytosd.playMusicFromSdCard();
 
         ViewPager2 viewPager = findViewById(R.id.viewPager);
         WeatherPagerAdapter adapter = new WeatherPagerAdapter(WeatherActivity.this);
@@ -41,7 +47,6 @@ public class WeatherActivity extends AppCompatActivity {
         WeatherPagerAdapter adapter1 = new WeatherPagerAdapter(this);
         viewPager.setAdapter(adapter1);
 
-        TabLayout tabLayout2 = findViewById(R.id.tabLayout);
 
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> {
