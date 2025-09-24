@@ -38,6 +38,7 @@ public class RawtoExternal {
 
         } catch (IOException e) {
             e.printStackTrace();
+            Log.i("CopyFile", "Error copying file");
         }
     }
 
@@ -49,8 +50,10 @@ public class RawtoExternal {
             mediaPlayer.setDataSource(file.getAbsolutePath());
             mediaPlayer.prepare();
             mediaPlayer.start();
+            Log.i("PlayMusic", "Playing music from sdcard");
         } catch (IOException e) {
             e.printStackTrace();
+            Log.i("PlayMusic", "Error playing music from sdcard");
         }
     }
 
