@@ -35,7 +35,7 @@ public class WeatherActivity extends AppCompatActivity {
         RawtoExternal copytosd = new RawtoExternal(WeatherActivity.this);
 
         // Copy MP3 to SD card
-        copytosd.copyFileToSdCard(WeatherActivity.this);
+        copytosd.copyFileToSdCard(this);
         // Play it
         copytosd.playMusicFromSdCard();
 
